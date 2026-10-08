@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "VisionGuard AI"
+description = "A security video intelligence workspace for uploading CCTV footage, reviewing timestamped findings, investigating incidents, and managing evidence with clear AI confidence and human review controls."
+version = "1.0.0"
+id = "artifacts/visionguard-ai"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24837
+
+[services.development]
+run = "pnpm --filter @workspace/visionguard-ai run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/visionguard-ai", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/visionguard-ai/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24837"
+BASE_PATH = "/"

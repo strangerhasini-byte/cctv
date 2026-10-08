@@ -10,6 +10,12 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: auth
+    description: Browser authentication
+  - name: visionguard
+    description: VisionGuard video intelligence operations
+  - name: storage
+    description: Secure upload preparation
 paths:
   /healthz:
     get:
@@ -24,6 +30,333 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+  /visionguard/dashboard:
+    get:
+      operationId: getVisionDashboard
+      tags: [visionguard]
+      summary: Get dashboard metrics and recent security activity
+      responses:
+        "200":
+          description: Dashboard data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Dashboard"
+  /videos:
+    get:
+      operationId: getVideos
+      tags: [visionguard]
+      summary: List accessible videos
+      responses:
+        "200":
+          description: Videos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Video"
+    post:
+      operationId: createVideo
+      tags: [visionguard]
+      summary: Register a video and its analysis metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VideoInput"
+      responses:
+        "201":
+          description: Video registered
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Video"
+  /events:
+    get:
+      operationId: getEvents
+      tags: [visionguard]
+      summary: List timestamped events
+      responses:
+        "200":
+          description: Events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Event"
+  /events/{eventId}/review:
+    patch:
+      operationId: reviewEvent
+      tags: [visionguard]
+      summary: Update human review status for an event
+      parameters:
+        - name: eventId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EventReviewInput"
+      responses:
+        "200":
+          description: Updated event
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Event"
+  /investigations:
+    get:
+      operationId: getInvestigations
+      tags: [visionguard]
+      summary: List investigations
+      responses:
+        "200":
+          description: Investigations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Investigation"
+    post:
+      operationId: createInvestigation
+      tags: [visionguard]
+      summary: Create an investigation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InvestigationInput"
+      responses:
+        "201":
+          description: Investigation created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Investigation"
+  /alerts:
+    get:
+      operationId: getAlerts
+      tags: [visionguard]
+      summary: List alert rules and recent alert state
+      responses:
+        "200":
+          description: Alerts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AlertRule"
+    post:
+      operationId: createAlert
+      tags: [visionguard]
+      summary: Create an alert rule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AlertInput"
+      responses:
+        "201":
+          description: Alert rule created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AlertRule"
+  /alerts/{alertId}/status:
+    patch:
+      operationId: updateAlertStatus
+      tags: [visionguard]
+      summary: Update alert rule status
+      parameters:
+        - name: alertId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AlertStatusInput"
+      responses:
+        "200":
+          description: Updated alert rule
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AlertRule"
+  /search:
+    post:
+      operationId: searchEvidence
+      tags: [visionguard]
+      summary: Search indexed evidence descriptions
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SearchInput"
+      responses:
+        "200":
+          description: Matching evidence
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Event"
+  /ask-ai:
+    post:
+      operationId: askAboutEvidence
+      tags: [visionguard]
+      summary: Ask a question grounded in indexed event evidence
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AskInput"
+      responses:
+        "200":
+          description: Evidence-grounded answer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Answer"
+  /reports:
+    get:
+      operationId: getReports
+      tags: [visionguard]
+      summary: List generated reports
+      responses:
+        "200":
+          description: Reports
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Report"
+    post:
+      operationId: createReport
+      tags: [visionguard]
+      summary: Generate a report from indexed evidence
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReportInput"
+      responses:
+        "201":
+          description: Report created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Report"
+  /storage/uploads/request-url:
+    post:
+      operationId: requestUploadUrl
+      tags: [storage]
+      summary: Request a private, time-limited upload URL
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UploadUrlRequest"
+      responses:
+        "200":
+          description: Upload URL
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UploadUrlResponse"
+  /auth/user:
+    get:
+      operationId: getCurrentAuthUser
+      tags: [auth]
+      summary: Read current authentication state
+      responses:
+        "200":
+          description: Current user or null
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthUserEnvelope"
+  /login:
+    get:
+      operationId: beginBrowserLogin
+      tags: [auth]
+      summary: Begin secure browser sign-in
+      parameters:
+        - name: returnTo
+          in: query
+          required: false
+          schema: { type: string }
+      responses:
+        "302": { description: Redirect to identity provider }
+  /callback:
+    get:
+      operationId: handleBrowserLoginCallback
+      tags: [auth]
+      summary: Complete secure browser sign-in
+      responses:
+        "302": { description: Redirect to the app }
+  /logout:
+    get:
+      operationId: logoutBrowserSession
+      tags: [auth]
+      summary: End browser session
+      parameters:
+        - name: returnTo
+          in: query
+          required: false
+          schema: { type: string }
+      responses:
+        "302": { description: Redirect to signed-out destination }
+  /mobile-auth/token-exchange:
+    post:
+      operationId: exchangeMobileAuthorizationCode
+      tags: [auth]
+      summary: Exchange a mobile authorization code
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MobileTokenExchangeRequest"
+      responses:
+        "200":
+          description: Session token
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MobileTokenExchangeSuccess"
+  /mobile-auth/logout:
+    post:
+      operationId: logoutMobileSession
+      tags: [auth]
+      summary: End mobile session
+      responses:
+        "200":
+          description: Signed out
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LogoutSuccess"
 components:
   schemas:
     HealthStatus:
@@ -33,4 +366,223 @@ components:
           type: string
       required:
         - status
+    Video:
+      type: object
+      required: [id, name, camera, location, uploadedAt, durationSeconds, resolution, status, peopleCount, eventCount, alertCount, riskLevel, summary, fileSizeBytes, source]
+      properties:
+        id: { type: string }
+        name: { type: string }
+        camera: { type: string }
+        location: { type: string }
+        uploadedAt: { type: string, format: date-time }
+        durationSeconds: { type: integer }
+        resolution: { type: string }
+        status: { type: string, enum: [analyzed, processing, attention] }
+        peopleCount: { type: integer }
+        eventCount: { type: integer }
+        alertCount: { type: integer }
+        riskLevel: { type: string, enum: [low, medium, high, critical] }
+        summary: { type: string }
+        fileSizeBytes: { type: integer }
+        source: { type: string, enum: [demo, upload] }
+        objectPath: { type: [string, "null"] }
+    VideoInput:
+      type: object
+      required: [name, camera, location, fileSizeBytes]
+      properties:
+        name: { type: string, minLength: 1 }
+        camera: { type: string, minLength: 1 }
+        location: { type: string, minLength: 1 }
+        fileSizeBytes: { type: integer, minimum: 1 }
+        objectPath: { type: string }
+    Event:
+      type: object
+      required: [id, videoId, videoName, timestampSeconds, eventType, severity, confidence, description, location, reviewStatus, evidenceLabel]
+      properties:
+        id: { type: string }
+        videoId: { type: string }
+        videoName: { type: string }
+        timestampSeconds: { type: integer }
+        eventType: { type: string }
+        severity: { type: string, enum: [info, normal, warning, suspicious, critical] }
+        confidence: { type: number, minimum: 0, maximum: 1 }
+        description: { type: string }
+        location: { type: string }
+        reviewStatus: { type: string, enum: [needs_review, confirmed, dismissed] }
+        evidenceLabel: { type: string }
+    EventReviewInput:
+      type: object
+      required: [reviewStatus]
+      properties:
+        reviewStatus: { type: string, enum: [needs_review, confirmed, dismissed] }
+    Investigation:
+      type: object
+      required: [id, title, severity, status, createdAt, eventIds, notes]
+      properties:
+        id: { type: string }
+        title: { type: string }
+        severity: { type: string, enum: [low, medium, high, critical] }
+        status: { type: string, enum: [open, investigating, resolved] }
+        createdAt: { type: string, format: date-time }
+        eventIds:
+          type: array
+          items: { type: string }
+        notes: { type: string }
+    InvestigationInput:
+      type: object
+      required: [title, severity]
+      properties:
+        title: { type: string, minLength: 1 }
+        severity: { type: string, enum: [low, medium, high, critical] }
+        eventIds:
+          type: array
+          items: { type: string }
+        notes: { type: string }
+    AlertRule:
+      type: object
+      required: [id, name, trigger, severity, status, createdAt]
+      properties:
+        id: { type: string }
+        name: { type: string }
+        trigger: { type: string }
+        severity: { type: string, enum: [low, medium, high, critical] }
+        status: { type: string, enum: [active, paused] }
+        createdAt: { type: string, format: date-time }
+    AlertInput:
+      type: object
+      required: [name, trigger, severity]
+      properties:
+        name: { type: string, minLength: 1 }
+        trigger: { type: string, minLength: 1 }
+        severity: { type: string, enum: [low, medium, high, critical] }
+    AlertStatusInput:
+      type: object
+      required: [status]
+      properties:
+        status: { type: string, enum: [active, paused] }
+    SearchInput:
+      type: object
+      required: [query]
+      properties:
+        query: { type: string, minLength: 1 }
+        videoId: { type: string }
+    AskInput:
+      type: object
+      required: [question]
+      properties:
+        question: { type: string, minLength: 1 }
+        videoId: { type: string }
+    Answer:
+      type: object
+      required: [answer, evidence, confidence, grounded]
+      properties:
+        answer: { type: string }
+        evidence:
+          type: array
+          items:
+            $ref: "#/components/schemas/Event"
+        confidence: { type: number }
+        grounded: { type: boolean }
+    Report:
+      type: object
+      required: [id, title, videoId, createdAt, severity, summary, status]
+      properties:
+        id: { type: string }
+        title: { type: string }
+        videoId: { type: string }
+        createdAt: { type: string, format: date-time }
+        severity: { type: string, enum: [low, medium, high, critical] }
+        summary: { type: string }
+        status: { type: string, enum: [ready, generating] }
+    ReportInput:
+      type: object
+      required: [videoId]
+      properties:
+        videoId: { type: string }
+    Dashboard:
+      type: object
+      required: [videosAnalyzed, peopleDetected, uniqueTracks, totalEvents, unusualEvents, criticalAlerts, importantClips, confidence, activity, recentEvents, cameras]
+      properties:
+        videosAnalyzed: { type: integer }
+        peopleDetected: { type: integer }
+        uniqueTracks: { type: integer }
+        totalEvents: { type: integer }
+        unusualEvents: { type: integer }
+        criticalAlerts: { type: integer }
+        importantClips: { type: integer }
+        confidence: { type: number }
+        activity:
+          type: array
+          items:
+            type: object
+            required: [time, value]
+            properties:
+              time: { type: string }
+              value: { type: integer }
+        recentEvents:
+          type: array
+          items:
+            $ref: "#/components/schemas/Event"
+        cameras:
+          type: array
+          items:
+            type: object
+            required: [name, location, status, activity, events]
+            properties:
+              name: { type: string }
+              location: { type: string }
+              status: { type: string, enum: [online, processing, offline] }
+              activity: { type: string, enum: [low, normal, elevated, critical] }
+              events: { type: integer }
+    UploadUrlRequest:
+      type: object
+      required: [name, size, contentType]
+      properties:
+        name: { type: string, minLength: 1 }
+        size: { type: integer, minimum: 1 }
+        contentType: { type: string, minLength: 1 }
+    UploadUrlResponse:
+      type: object
+      required: [uploadURL, objectPath]
+      properties:
+        uploadURL: { type: string, format: uri }
+        objectPath: { type: string }
+        metadata:
+          $ref: "#/components/schemas/UploadUrlRequest"
+    AuthUser:
+      type: object
+      required: [id, email, firstName, lastName, profileImageUrl]
+      properties:
+        id: { type: string }
+        email: { type: [string, "null"], format: email }
+        firstName: { type: [string, "null"] }
+        lastName: { type: [string, "null"] }
+        profileImageUrl: { type: [string, "null"] }
+    AuthUserEnvelope:
+      type: object
+      required: [user]
+      properties:
+        user:
+          oneOf:
+            - $ref: "#/components/schemas/AuthUser"
+            - type: "null"
+    MobileTokenExchangeRequest:
+      type: object
+      required: [code, code_verifier, redirect_uri, state]
+      properties:
+        code: { type: string, minLength: 1 }
+        code_verifier: { type: string, minLength: 1 }
+        redirect_uri: { type: string, format: uri }
+        state: { type: string, minLength: 1 }
+        nonce: { type: string, minLength: 1 }
+    MobileTokenExchangeSuccess:
+      type: object
+      required: [token]
+      properties:
+        token: { type: string }
+    LogoutSuccess:
+      type: object
+      required: [success]
+      properties:
+        success: { type: boolean, const: true }
 

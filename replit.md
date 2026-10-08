@@ -1,6 +1,6 @@
-# [Project name]
+# VisionGuard AI
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A private security-review workspace for organizing CCTV recordings and checking timestamped activity findings.
 
 ## Run & Operate
 
@@ -9,7 +9,8 @@ _Replace the heading above with the project's name, and this line with one sente
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
 - `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- `pnpm --filter @workspace/visionguard-ai run typecheck` — check the web artifact
+- Required environment is supplied through the Replit workspace: database connection, session signing, OIDC identity, and private object storage.
 
 ## Stack
 
@@ -22,23 +23,34 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/visionguard-ai/src/App.tsx` — routed review workspace and user-facing flows
+- `artifacts/visionguard-ai/src/index.css` and `src/session.css` — visual system and sign-in styling
+- `artifacts/api-server/src/routes/visionguard.ts` — owner-scoped evidence, dashboard, investigations, alerts, reports, and upload registration
+- `artifacts/api-server/src/routes/storage.ts` — signed uploads and owner-checked private video reads
+- `lib/api-spec/openapi.yaml` — source of truth for API contracts
+- `lib/db/src/schema/visionguard.ts` — VisionGuard PostgreSQL schema
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Every VisionGuard data query is scoped to the authenticated user's ID; stored video objects are readable only after they are registered to that same user.
+- First-time accounts receive clearly labeled sample records to make the review interface usable without claiming that the uploaded footage was analyzed.
+- New uploads are private source files; automated computer-vision processing is not connected, so an upload must not be presented as analyzed.
+- Evidence search and Ask Evidence currently match stored event descriptions. No generative model or video-understanding service is connected.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+The workspace provides a dashboard, private video library and upload flow, timestamped event review, anonymous track summaries, investigations, text evidence search, evidence-bounded Q&A, alert rules, reports, analytics, and review settings. Findings are candidates for human verification, not proof of identity, intent, or wrongdoing.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Keep footage and review data confidential; do not make CCTV objects publicly accessible.
+- Clearly distinguish observations, model estimates, sample data, and human-confirmed conclusions. Never infer identity from appearance.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- API hooks and runtime validation are generated from `lib/api-spec/openapi.yaml`; regenerate them after contract changes.
+- The sample dataset is seeded once per user, when their VisionGuard video library is first accessed.
+- Evidence Q&A is currently deterministic text matching and must not be described as generative AI.
 
 ## Pointers
 

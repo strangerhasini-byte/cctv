@@ -1,0 +1,1951 @@
+Below is a **mega prompt** you can paste into an AI app builder/coding agent to generate the full CCTV Video Intelligence product.
+
+:::writing{variant="document" id="58321" title="Mega Prompt — AI CCTV Video Intelligence App"}
+
+# Build a Modern AI-Powered CCTV Video Intelligence Platform
+
+You are a senior product designer, UX engineer, full-stack developer, AI/ML engineer, and security architect. Build a production-quality, modern **AI-powered CCTV Video Intelligence web application** that allows users to upload CCTV footage and automatically understand, search, analyze, summarize, and investigate the entire video using AI.
+
+The product should feel like a premium combination of **video surveillance analytics + AI copilot + investigation workspace**, with a clean, modern, professional interface suitable for security teams, businesses, warehouses, retail stores, offices, campuses, factories, parking facilities, and other environments.
+
+Do not build a simple demo or static dashboard. Build a highly polished, functional application architecture with realistic interactions, responsive UI, reusable components, clear states, and extensible AI/video-processing infrastructure.
+
+---
+
+## 1\. PRODUCT VISION
+
+Create an application called:
+
+**VisionGuard AI**
+
+Tagline:
+
+**“Turn hours of CCTV footage into actionable intelligence.”**
+
+The core workflow should be:
+
+1. User uploads CCTV footage.
+2. System processes the complete video.
+3. AI detects and tracks people and relevant objects.
+4. AI identifies activities, events, anomalies, and unusual behavior.
+5. AI generates a timestamped event timeline.
+6. AI produces people/object counts and movement analytics.
+7. User can search the video using natural language.
+8. User can ask questions about the footage through an AI assistant.
+9. Important moments are automatically extracted into clips.
+10. The system can trigger alerts for configurable events.
+11. AI generates an actionable investigation report.
+12. User can review evidence, jump directly to timestamps, export clips, and download/share reports.
+
+The application should prioritize **clarity, speed, investigation efficiency, and trustworthy AI explanations**.
+
+---
+
+# 2\. PRIMARY USERS
+
+Design the product for:
+
+- Security operators
+- CCTV monitoring teams
+- Loss-prevention teams
+- Facility managers
+- Warehouse managers
+- Retail managers
+- Corporate security teams
+- Investigators
+- Operations teams
+- Business owners
+
+Users may have little technical knowledge, so the interface should explain AI findings clearly.
+
+---
+
+# 3\. CORE APPLICATION STRUCTURE
+
+Create the following primary navigation:
+
+### Sidebar
+
+- Dashboard
+- Video Library
+- Upload Video
+- Live Analysis
+- Investigations
+- Events
+- People & Objects
+- AI Search
+- Ask AI
+- Alerts
+- Reports
+- Analytics
+- Settings
+
+Bottom section:
+
+- Help & Documentation
+- Notifications
+- User profile
+- Organization switcher
+
+The sidebar should be collapsible.
+
+Use a modern dark/light interface with a professional security-operations aesthetic.
+
+---
+
+# 4\. DASHBOARD
+
+Create a highly polished dashboard showing the current security intelligence overview.
+
+Top header:
+
+- Organization name
+- Date/time
+- Search
+- Notifications
+- User avatar
+
+Hero section:
+
+**“Good morning. Here's what your cameras detected.”**
+
+Show KPI cards:
+
+- Videos analyzed
+- Total people detected
+- Unique people tracked
+- Total events
+- Unusual events
+- Alerts triggered
+- Important clips
+- AI confidence score
+
+Example metrics:
+
+- 24 videos analyzed
+- 1,842 people detected
+- 927 unique tracks
+- 143 activities detected
+- 12 unusual events
+- 7 critical alerts
+- 38 important clips
+
+Do not use meaningless decorative metrics. Every metric should have a clear purpose.
+
+---
+
+# 5\. SECURITY OVERVIEW
+
+Create an overview panel showing:
+
+### Activity level
+
+Visualize:
+
+- Low
+- Normal
+- Elevated
+- Critical
+
+Include a timeline chart representing activity intensity over time.
+
+### Recent events
+
+Display cards such as:
+
+- Person entered restricted zone
+- Crowd density increased
+- Person remained stationary for 18 minutes
+- Object left unattended
+- Vehicle entered parking area
+- Person crossed virtual boundary
+- Activity detected outside normal hours
+
+Every event should include:
+
+- Timestamp
+- Event type
+- Severity
+- AI confidence
+- Camera/video source
+- Thumbnail
+- “View event” action
+
+Clicking an event should jump to the exact video timestamp.
+
+---
+
+# 6\. VIDEO UPLOAD EXPERIENCE
+
+Create a beautiful drag-and-drop upload interface.
+
+Support:
+
+- MP4
+- MOV
+- AVI
+- MKV
+- WebM
+
+Show:
+
+- File name
+- File size
+- Duration
+- Resolution
+- FPS
+- Upload progress
+- Processing progress
+- AI analysis progress
+
+After upload, show processing stages:
+
+1. Uploading
+2. Extracting frames
+3. Detecting objects
+4. Tracking people
+5. Recognizing activities
+6. Detecting anomalies
+7. Generating timeline
+8. Generating analytics
+9. Extracting important clips
+10. Generating AI report
+
+Use a progress indicator with meaningful statuses.
+
+Example:
+
+**AI Analysis — 72%**
+
+“Detecting unusual activity…”
+
+Allow users to leave the page while processing.
+
+---
+
+# 7\. VIDEO LIBRARY
+
+Create a searchable video management system.
+
+Each video card should show:
+
+- Thumbnail
+- Camera name
+- Upload date
+- Duration
+- Resolution
+- Processing status
+- Number of people
+- Number of events
+- Number of alerts
+- Risk level
+
+Filters:
+
+- Date
+- Camera
+- Location
+- Processing status
+- Risk level
+- Event type
+- Duration
+
+Search should support natural-language queries.
+
+Example:
+
+> “Show videos from the warehouse where unusual activity was detected.”
+
+---
+
+# 8\. VIDEO ANALYSIS WORKSPACE
+
+This is the most important screen.
+
+Create a professional video investigation interface.
+
+Layout:
+
+### Left side
+
+Video player.
+
+Features:
+
+- Play/pause
+- Timeline
+- Playback speed
+- Frame stepping
+- Fullscreen
+- Volume
+- Timestamp
+- Resolution selector
+- Screenshot
+- Clip extraction
+- Download
+
+Overlay detections directly on the video:
+
+- Bounding boxes
+- Person IDs
+- Object labels
+- Tracking paths
+- Restricted zones
+- Activity markers
+
+Example:
+
+`Person #042`
+
+`Confidence: 96%`
+
+Use different colors for different object categories.
+
+---
+
+# 9\. AI VIDEO TIMELINE
+
+Below the video player, create a rich AI-generated timeline.
+
+Display events chronologically.
+
+Example:
+
+**00:02:14** Person enters north entrance.
+
+**00:04:38** Two people detected near restricted area.
+
+**00:08:51** Person #17 remains stationary for 3 minutes.
+
+**00:13:27** Unattended object detected.
+
+**00:17:44** Crowd density increases.
+
+**00:21:08** Person crosses restricted-zone boundary.
+
+Use severity colors:
+
+- Blue = informational
+- Green = normal
+- Yellow = warning
+- Orange = suspicious
+- Red = critical
+
+Allow clicking any event to jump directly to the relevant timestamp.
+
+---
+
+# 10\. PEOPLE DETECTION & TRACKING
+
+The AI should detect and track people throughout the video.
+
+For each detected person, provide:
+
+- Track ID
+- First appearance
+- Last appearance
+- Duration visible
+- Number of appearances
+- Approximate movement path
+- Areas visited
+- Activity detected
+- Confidence
+
+Example:
+
+**Person #024**
+
+- First seen: 10:14:32
+- Last seen: 10:37:18
+- Visible for: 8m 42s
+- Areas visited: Entrance → Lobby → Storage
+- Activities: Walking, Standing
+- Risk: Low
+
+Do not claim identity unless the system has an authorized identity-recognition capability and appropriate data.
+
+Prefer anonymous track IDs by default.
+
+---
+
+# 11\. OBJECT DETECTION
+
+Detect configurable object categories such as:
+
+- Person
+- Vehicle
+- Car
+- Truck
+- Bicycle
+- Motorcycle
+- Bag
+- Box
+- Package
+- Chair
+- Equipment
+
+Allow administrators to configure object categories.
+
+Display object counts and activity.
+
+---
+
+# 12\. ACTIVITY DETECTION
+
+Detect relevant activities from the footage.
+
+Examples:
+
+- Walking
+- Running
+- Standing
+- Sitting
+- Entering
+- Exiting
+- Loitering
+- Falling
+- Fighting
+- Crowd formation
+- Object pickup
+- Object drop
+- Object left unattended
+- Restricted-zone entry
+- Boundary crossing
+- Vehicle entry
+- Vehicle exit
+- Unusual movement
+- After-hours activity
+
+Activities should have:
+
+- Timestamp
+- Duration
+- Confidence
+- Related person/object
+- Severity
+- Evidence clip
+
+Clearly distinguish **AI inference** from directly observed facts.
+
+---
+
+# 13\. UNUSUAL EVENT DETECTION
+
+Create an anomaly detection system.
+
+Analyze:
+
+- Unusual movement
+- Unusual crowd density
+- After-hours activity
+- Restricted-zone access
+- Long-duration loitering
+- Sudden crowd formation
+- Abandoned objects
+- Rapid movement
+- Unexpected direction changes
+- Unusual object movement
+- Camera obstruction
+- Sudden lighting changes
+- Potential incidents
+
+Every anomaly should include an explanation.
+
+Example:
+
+### Unusual Event
+
+**Person remained inside restricted zone**
+
+Timestamp: `02:14:37`
+
+Confidence: `91%`
+
+Reason:
+
+“Person entered the restricted zone and remained there for approximately 4 minutes during a period when no authorized activity was detected.”
+
+Provide:
+
+- Watch clip
+- Open timestamp
+- Create investigation
+- Create alert
+- Add note
+
+---
+
+# 14\. NATURAL-LANGUAGE VIDEO SEARCH
+
+Create a powerful AI search interface.
+
+Users should be able to type queries such as:
+
+> “Show me everyone who entered the warehouse after 10 PM.”
+
+> “Find the moment someone left a bag unattended.”
+
+> “Show people running near the entrance.”
+
+> “When did the largest crowd occur?”
+
+> “Find all vehicles entering the parking lot.”
+
+> “Show unusual activity between 2 PM and 5 PM.”
+
+The system should return:
+
+- Matching timestamps
+- Video thumbnails
+- Relevant clips
+- Confidence
+- Explanation
+- Related people/object tracks
+
+Each result must be clickable and jump to the exact timestamp.
+
+---
+
+# 15\. ASK AI
+
+Build a conversational AI assistant specifically for video investigation.
+
+Interface:
+
+### Ask AI
+
+“Ask anything about this footage.”
+
+Suggested questions:
+
+- What happened in this video?
+- How many people entered?
+- What was the busiest period?
+- Were there any unusual events?
+- Did anyone enter the restricted area?
+- What happened between 2 PM and 3 PM?
+- Which person appeared for the longest time?
+- Were there unattended objects?
+- Summarize all security concerns.
+- Create an incident report.
+
+AI responses should include evidence references.
+
+Example:
+
+> “Three unusual events were detected. The most significant occurred at 14:37 when a person entered the restricted zone and remained there for approximately four minutes.”
+
+Evidence:
+
+`14:37:12 — View moment`
+
+Clicking evidence should jump to that timestamp.
+
+Never fabricate events. If the video does not contain enough evidence, explicitly say so.
+
+---
+
+# 16\. AI RESPONSE DESIGN
+
+Responses should have:
+
+- Short answer
+- Supporting evidence
+- Relevant timestamps
+- Confidence
+- Suggested next actions
+
+Example:
+
+### Finding
+
+A person entered the restricted zone at approximately 14:37.
+
+### Evidence
+
+- 14:37:12 — Boundary crossing
+- 14:37:24 — Person remains inside
+- 14:41:08 — Person exits
+
+### Recommended action
+
+Review the extracted 14:36–14:42 clip.
+
+---
+
+# 17\. AUTOMATIC CLIP EXTRACTION
+
+The AI should automatically identify important moments.
+
+Generate clips around:
+
+- Critical events
+- Suspicious activity
+- Restricted-zone entries
+- Crowd formation
+- Falls
+- Fights
+- Abandoned objects
+- Unusual behavior
+- Important user search results
+
+Clip controls:
+
+- Start time
+- End time
+- Event title
+- Severity
+- AI explanation
+
+Allow:
+
+- Preview
+- Rename
+- Download
+- Share
+- Add to investigation
+- Add to report
+
+---
+
+# 18\. ALERT SYSTEM
+
+Create configurable alerts.
+
+Alert rules can be based on:
+
+- Restricted-zone entry
+- Person count threshold
+- Crowd density
+- Loitering duration
+- After-hours activity
+- Unattended object
+- Vehicle entry
+- Specific activity
+- Anomaly score
+
+Example:
+
+**Alert Rule**
+
+“If more than 10 people are detected in Zone A for more than 2 minutes, trigger a high-priority alert.”
+
+Alert channels:
+
+- In-app
+- Email
+- Webhook
+- Push notification
+
+Show alert history.
+
+Each alert should include:
+
+- Time
+- Severity
+- Trigger
+- Video
+- Timestamp
+- Evidence clip
+- Status
+
+Statuses:
+
+- New
+- Acknowledged
+- Investigating
+- Resolved
+
+---
+
+# 19\. INVESTIGATION WORKSPACE
+
+Users should be able to create investigations.
+
+Example:
+
+**Investigation #INV-1042**
+
+Title: “Restricted Area Incident”
+
+Sections:
+
+- Overview
+- Timeline
+- People
+- Objects
+- Events
+- Evidence
+- Notes
+- AI Analysis
+- Actions
+- Report
+
+Allow users to attach:
+
+- Video clips
+- Screenshots
+- Timeline events
+- AI findings
+- Notes
+
+Provide an audit trail.
+
+---
+
+# 20\. ANALYTICS
+
+Create a comprehensive analytics dashboard.
+
+Metrics:
+
+### People analytics
+
+- Total people
+- Unique tracks
+- Peak occupancy
+- Average occupancy
+- Entry count
+- Exit count
+- Average dwell time
+
+### Activity analytics
+
+- Walking
+- Standing
+- Running
+- Loitering
+- Restricted access
+- Other activities
+
+### Time analytics
+
+Show activity by:
+
+- Hour
+- Day
+- Week
+
+Visualizations:
+
+- Line charts
+- Bar charts
+- Heatmaps
+- Area charts
+- Donut charts
+
+---
+
+# 21\. HEATMAP
+
+Create a spatial movement heatmap.
+
+Show:
+
+- High-traffic zones
+- Low-traffic zones
+- Restricted zones
+- Movement paths
+
+Use a realistic floor/camera visualization.
+
+Allow users to select:
+
+- People
+- Vehicles
+- Specific track IDs
+- Time ranges
+- Events
+
+---
+
+# 22\. CAMERA ANALYTICS
+
+For each camera:
+
+- Camera name
+- Location
+- Video count
+- Analysis status
+- Activity level
+- People detected
+- Events detected
+- Alerts
+- Health status
+
+Camera statuses:
+
+- Online
+- Processing
+- Offline
+- Attention required
+
+---
+
+# 23\. REPORT GENERATION
+
+Build automated AI-generated reports.
+
+A report should contain:
+
+### Executive Summary
+
+A concise summary of what happened.
+
+### Key Findings
+
+Important detected events.
+
+### Timeline
+
+Timestamped sequence of relevant events.
+
+### People & Objects
+
+Detected entities and movement patterns.
+
+### Anomalies
+
+Unusual events and confidence levels.
+
+### Evidence
+
+Links to relevant video timestamps and clips.
+
+### Risk Assessment
+
+Low / Medium / High / Critical.
+
+### Recommended Actions
+
+Concrete operational recommendations.
+
+Example:
+
+- Review restricted-area access policy.
+- Verify identity of authorized personnel.
+- Inspect the unattended object event.
+- Increase monitoring during identified high-risk periods.
+
+### Appendix
+
+Technical metadata.
+
+Allow:
+
+- PDF export
+- CSV export
+- JSON export
+- Shareable report link
+
+---
+
+# 24\. AI REPORT LANGUAGE
+
+Reports must avoid overclaiming.
+
+Use language such as:
+
+- “The system detected…”
+- “The footage appears to show…”
+- “AI confidence: 87%”
+- “This event warrants human review.”
+
+Do not state uncertain AI inferences as confirmed facts.
+
+---
+
+# 25\. SEARCH EXPERIENCE
+
+Add a global command/search interface.
+
+Keyboard shortcut:
+
+`⌘/Ctrl + K`
+
+Search across:
+
+- Videos
+- Events
+- People
+- Objects
+- Investigations
+- Reports
+
+Natural-language examples:
+
+> “Find all restricted-zone events this week.”
+
+> “Show high-risk footage from Warehouse A.”
+
+> “Find videos with more than 20 people.”
+
+---
+
+# 26\. EVENT DETAILS PANEL
+
+Clicking an event opens a side panel.
+
+Show:
+
+- Event title
+- Severity
+- Timestamp
+- Camera
+- AI confidence
+- Description
+- Related people
+- Related objects
+- Evidence clip
+- Similar events
+- Recommended action
+
+Actions:
+
+- Watch
+- Extract clip
+- Add note
+- Add to investigation
+- Create alert
+- Mark reviewed
+
+---
+
+# 27\. DESIGN SYSTEM
+
+Use a premium modern UI.
+
+Design principles:
+
+- Minimal
+- Professional
+- Dense but readable
+- Strong visual hierarchy
+- Fast navigation
+- Consistent spacing
+- Accessible colors
+- Responsive layout
+
+Use:
+
+- Rounded cards
+- Subtle shadows
+- Glass/blur effects sparingly
+- Dark charcoal surfaces
+- Electric blue / cyan AI accents
+- Amber for warnings
+- Red for critical events
+- Green for healthy systems
+
+Avoid excessive gradients, gimmicky AI graphics, and unnecessary animations.
+
+---
+
+# 28\. RESPONSIVE DESIGN
+
+Desktop should be the primary experience.
+
+Also support:
+
+- Laptop
+- Tablet
+- Mobile
+
+On mobile:
+
+- Convert sidebar to bottom/navigation drawer.
+- Stack analytics cards.
+- Make video player responsive.
+- Make event timeline scrollable.
+- Keep Ask AI accessible.
+
+---
+
+# 29\. DARK MODE
+
+Dark mode should be first-class.
+
+Suggested palette:
+
+Background: `#080B12`
+
+Surface: `#10151F`
+
+Secondary surface: `#161D29`
+
+Primary: `#3B82F6`
+
+AI accent: `#06B6D4`
+
+Success: `#22C55E`
+
+Warning: `#F59E0B`
+
+Critical: `#EF4444`
+
+Text: `#F8FAFC`
+
+Muted: `#94A3B8`
+
+Also provide a polished light mode.
+
+---
+
+# 30\. MICRO-INTERACTIONS
+
+Use subtle animations for:
+
+- Upload progress
+- AI processing
+- Event detection
+- Timeline navigation
+- Search results
+- Modal transitions
+- Alert appearance
+
+Do not over-animate.
+
+Animations should communicate system state, not merely decorate the UI.
+
+---
+
+# 31\. TECHNICAL ARCHITECTURE
+
+Design the system as a scalable full-stack application.
+
+Frontend:
+
+- React
+- TypeScript
+- Modern component architecture
+- Responsive CSS
+- Reusable UI components
+- Charting library
+- Video player component
+
+Backend:
+
+- REST or GraphQL API
+- Authentication
+- Role-based access control
+- Video-processing jobs
+- AI inference pipeline
+- Event processing
+- Search service
+- Notification service
+- Report generation service
+
+Database should store:
+
+- Users
+- Organizations
+- Cameras
+- Videos
+- Video metadata
+- Processing jobs
+- Detection results
+- Track IDs
+- Events
+- Alerts
+- Investigations
+- Clips
+- Reports
+- Audit logs
+
+Object storage should store:
+
+- Original videos
+- Generated clips
+- Thumbnails
+- Screenshots
+- Reports
+
+Use asynchronous background workers for video processing.
+
+---
+
+# 32\. AI PIPELINE
+
+Architect the AI pipeline as modular services.
+
+Pipeline:
+
+```
+Video Upload
+     ↓
+Video Metadata Extraction
+     ↓
+Frame / Scene Sampling
+     ↓
+Object Detection
+     ↓
+Multi-Object Tracking
+     ↓
+Activity Recognition
+     ↓
+Zone / Boundary Analysis
+     ↓
+Anomaly Detection
+     ↓
+Event Generation
+     ↓
+Timeline Generation
+     ↓
+Embedding Generation
+     ↓
+Natural Language Search Index
+     ↓
+AI Summary
+     ↓
+Important Clip Extraction
+     ↓
+Automated Report
+```
+
+The architecture should allow individual AI models to be replaced without rewriting the entire application.
+
+---
+
+# 33\. VIDEO PROCESSING
+
+Do not load entire large videos into the browser.
+
+Use server-side processing.
+
+For long videos:
+
+- Process asynchronously.
+- Chunk video when necessary.
+- Track processing progress.
+- Store intermediate results.
+- Resume failed jobs.
+- Allow retry.
+- Avoid duplicate processing.
+
+The UI should show processing state in real time.
+
+---
+
+# 34\. SEMANTIC VIDEO SEARCH
+
+Create a semantic indexing layer.
+
+Generate embeddings for:
+
+- Scenes
+- Events
+- Activity descriptions
+- Object interactions
+- Timestamped segments
+
+When the user searches:
+
+> “person carrying a box near the loading dock”
+
+retrieve relevant video segments based on semantic similarity plus structured detection filters.
+
+Search results should contain:
+
+- Timestamp
+- Relevance score
+- Thumbnail
+- Explanation
+- Video source
+- Clip
+
+---
+
+# 35\. AI CHAT CONTEXT
+
+Ask AI should have access to structured video evidence rather than blindly receiving raw video.
+
+Build a context layer containing:
+
+- Video metadata
+- Timeline
+- Events
+- Object detections
+- Track information
+- Activity events
+- Search results
+- Relevant clips
+- User notes
+
+When answering questions, cite exact timestamps.
+
+---
+
+# 36\. CONFIDENCE & TRUST
+
+Every AI-generated finding should support:
+
+- Confidence score
+- Evidence timestamp
+- Source video
+- Explainable reasoning
+- Human review status
+
+Use labels such as:
+
+- High confidence
+- Medium confidence
+- Low confidence
+
+Do not imply certainty when confidence is low.
+
+---
+
+# 37\. PRIVACY & SECURITY
+
+Treat CCTV footage as highly sensitive.
+
+Implement:
+
+- Authentication
+- RBAC
+- Organization isolation
+- Encryption at rest
+- Encryption in transit
+- Secure object storage
+- Signed temporary video URLs
+- Audit logging
+- Session management
+- Access controls
+- Data retention controls
+
+Roles:
+
+### Admin
+
+Full access.
+
+### Security Manager
+
+Manage investigations, alerts, reports.
+
+### Operator
+
+View and investigate footage.
+
+### Viewer
+
+Read-only access.
+
+---
+
+# 38\. PRIVACY CONTROLS
+
+Add optional:
+
+- Face blurring
+- License plate blurring
+- Person anonymization
+- Data retention periods
+- Automatic deletion
+- Export controls
+
+Make privacy settings visible and understandable.
+
+---
+
+# 39\. AUDIT LOG
+
+Record sensitive actions:
+
+- Video viewed
+- Video downloaded
+- Clip exported
+- Investigation created
+- Report generated
+- Alert modified
+- User permissions changed
+- Video deleted
+
+Show:
+
+- User
+- Action
+- Timestamp
+- Resource
+
+---
+
+# 40\. NOTIFICATIONS CENTER
+
+Create a notification drawer.
+
+Examples:
+
+- Video processing completed
+- Critical event detected
+- New alert
+- Report ready
+- AI analysis completed
+- Investigation updated
+
+Allow:
+
+- Mark read
+- Mark all read
+- Filter by severity
+
+---
+
+# 41\. EMPTY STATES
+
+Every page must have polished empty states.
+
+Examples:
+
+No videos:
+
+> “Upload your first CCTV recording to start discovering what happened.”
+
+No events:
+
+> “No significant events were detected in this footage.”
+
+No alerts:
+
+> “You're all clear. No active alerts.”
+
+No investigations:
+
+> “Create an investigation when you need to review an incident in detail.”
+
+---
+
+# 42\. ERROR STATES
+
+Handle:
+
+- Upload failures
+- Unsupported files
+- Corrupt videos
+- AI processing failures
+- Search failures
+- Network errors
+- Permission errors
+- Report generation failures
+
+Errors should be actionable.
+
+Example:
+
+> “We couldn't process this video because the file appears to be corrupted. Try uploading the original recording again.”
+
+Provide retry actions.
+
+---
+
+# 43\. LOADING STATES
+
+Use skeletons and meaningful progress states instead of blank screens.
+
+AI processing should never appear frozen.
+
+Show messages such as:
+
+- “Analyzing movement patterns…”
+- “Tracking people across scenes…”
+- “Looking for unusual activity…”
+- “Building your event timeline…”
+- “Preparing investigation insights…”
+
+---
+
+# 44\. SAMPLE DEMO DATA
+
+Populate the application with realistic demo data so the UI looks complete immediately.
+
+Create sample:
+
+- Cameras
+- CCTV videos
+- People tracks
+- Events
+- Alerts
+- Investigations
+- Reports
+- AI search results
+
+Use realistic timestamps and relationships.
+
+Do not use fake lorem ipsum.
+
+---
+
+# 45\. VIDEO DETAIL DEMO
+
+Create a sample video analysis scenario:
+
+Camera: **Warehouse Entrance — Camera 04**
+
+Duration: **42:18**
+
+Events:
+
+- 00:02:14 — Person enters
+- 00:06:43 — Two people detected
+- 00:11:20 — Vehicle enters loading zone
+- 00:17:52 — Person enters restricted area
+- 00:21:10 — Unattended object detected
+- 00:28:42 — Crowd density increases
+- 00:34:18 — Person exits restricted zone
+- 00:39:05 — Activity returns to normal
+
+Use these events throughout the UI so navigation feels connected.
+
+---
+
+# 46\. DEMO AI CONVERSATION
+
+Provide sample Ask AI conversation.
+
+User:
+
+> What unusual things happened in this video?
+
+AI:
+
+> I found 3 events that may require review. The most significant occurred at 17:52, when a person entered a restricted zone and remained there for approximately 16 minutes.
+
+Evidence:
+
+- 17:52 — Restricted-zone entry
+- 21:10 — Unattended object detected
+- 28:42 — Unusually high crowd density
+
+Recommended action:
+
+> Review the restricted-zone and unattended-object clips.
+
+---
+
+# 47\. AI SEARCH EXAMPLE
+
+User enters:
+
+> “Find everyone who entered the restricted area.”
+
+Results:
+
+### Match 1
+
+Person #17 17:52:12 Confidence 94%
+
+### Match 2
+
+Person #21 18:03:41 Confidence 88%
+
+Each result should have:
+
+**Watch → Extract Clip → Add to Investigation**
+
+---
+
+# 48\. REPORT EXAMPLE
+
+Generate a sample report:
+
+**Security Incident Report**
+
+Incident: Restricted Area Activity
+
+Date: October 8, 2026
+
+Severity: High
+
+Summary:
+
+The AI analysis detected multiple activities requiring human review, including restricted-zone entry, an unattended object, and elevated crowd density.
+
+Timeline:
+
+17:52 — Person enters restricted zone 21:10 — Unattended object detected 28:42 — Crowd density reaches elevated level 34:18 — Person exits restricted zone
+
+Recommended Actions:
+
+1. Review the restricted-zone footage.
+2. Verify whether the individual was authorized.
+3. Investigate the unattended object.
+4. Review access-control procedures.
+
+Include evidence references and clip links.
+
+---
+
+# 49\. COMPONENT ARCHITECTURE
+
+Create reusable components such as:
+
+- AppShell
+- Sidebar
+- TopNavigation
+- DashboardCard
+- VideoCard
+- VideoPlayer
+- VideoTimeline
+- EventMarker
+- EventPanel
+- PersonTrackCard
+- ObjectCard
+- AIChat
+- AISearch
+- AlertCard
+- InvestigationPanel
+- AnalyticsChart
+- Heatmap
+- ReportViewer
+- UploadDropzone
+- ProcessingProgress
+- NotificationDrawer
+- EvidenceClip
+- ConfidenceBadge
+- SeverityBadge
+- EmptyState
+- ErrorState
+- LoadingSkeleton
+
+Avoid duplicating UI logic.
+
+---
+
+# 50\. USER EXPERIENCE RULES
+
+The application should always answer these questions clearly:
+
+1. What happened?
+2. When did it happen?
+3. Where did it happen?
+4. Who/what was involved?
+5. How confident is the AI?
+6. Can I watch the evidence?
+7. What should I do next?
+
+Make timestamp navigation extremely fast.
+
+---
+
+# 51\. ACCESSIBILITY
+
+Implement:
+
+- Keyboard navigation
+- Proper focus states
+- ARIA labels
+- Accessible contrast
+- Screen-reader-friendly controls
+- Keyboard shortcuts
+
+Important shortcuts:
+
+`Space` — Play/Pause
+
+`← / →` — Previous/next frame or event
+
+`F` — Fullscreen
+
+`/` — Search
+
+`⌘/Ctrl + K` — Global search
+
+`A` — Ask AI
+
+---
+
+# 52\. PERFORMANCE
+
+Optimize for large video datasets.
+
+Use:
+
+- Lazy loading
+- Virtualized event lists
+- Pagination
+- Cached analytics
+- Background processing
+- Thumbnail generation
+- Progressive video loading
+- Efficient API requests
+
+Never render thousands of detections simultaneously if they are not visible.
+
+---
+
+# 53\. MOBILE EXPERIENCE
+
+Mobile should prioritize:
+
+- Alerts
+- AI search
+- Ask AI
+- Events
+- Video playback
+- Investigation updates
+
+Provide bottom navigation:
+
+- Home
+- Events
+- Search
+- Ask AI
+- More
+
+---
+
+# 54\. SETTINGS
+
+Create settings sections:
+
+### Organization
+
+- Organization name
+- Logo
+- Timezone
+
+### Users
+
+- Invite user
+- Roles
+- Permissions
+
+### Cameras
+
+- Add camera
+- Camera configuration
+- Zones
+
+### AI
+
+- Detection categories
+- Sensitivity
+- Confidence threshold
+- Anomaly sensitivity
+
+### Alerts
+
+- Alert rules
+- Notification channels
+
+### Privacy
+
+- Face blurring
+- Retention
+- Anonymization
+
+### Integrations
+
+- Webhooks
+- Email
+- Storage
+- External systems
+
+---
+
+# 55\. ZONE CONFIGURATION
+
+Allow users to draw zones over a camera frame.
+
+Zone types:
+
+- Restricted
+- Safe
+- Entry
+- Exit
+- Loading
+- Parking
+- High-risk
+
+Configure rules such as:
+
+> Trigger an alert when a person enters the Restricted Zone and remains for more than 30 seconds.
+
+---
+
+# 56\. HUMAN-IN-THE-LOOP DESIGN
+
+AI findings should never be treated as unquestionable truth.
+
+Allow operators to:
+
+- Confirm finding
+- Reject finding
+- Correct event type
+- Adjust timestamp
+- Add notes
+- Mark false positive
+
+Use operator feedback to improve future analysis.
+
+---
+
+# 57\. SECURITY OPERATIONS WORKFLOW
+
+Optimize the app around this workflow:
+
+**Detect → Verify → Investigate → Document → Act**
+
+Dashboard:
+
+Detect
+
+Event details:
+
+Verify
+
+Investigation:
+
+Investigate
+
+Report:
+
+Document
+
+Recommended actions:
+
+Act
+
+Make this workflow visually obvious.
+
+---
+
+# 58\. IMPORTANT UX PRINCIPLE
+
+Do not overwhelm the user with raw AI output.
+
+The application should transform:
+
+**Hours of video → Important moments → Evidence → Understanding → Action**
+
+Prioritize the most important information first.
+
+---
+
+# 59\. AI SUMMARIZATION
+
+Every analyzed video should automatically receive:
+
+### One-line summary
+
+Example:
+
+> “Mostly normal warehouse activity with three events requiring review.”
+
+### Detailed summary
+
+Explain the entire video in concise language.
+
+### Risk summary
+
+- Low-risk events: 12
+- Medium-risk events: 4
+- High-risk events: 2
+- Critical events: 0
+
+### Recommended review
+
+Highlight the most important timestamps.
+
+---
+
+# 60\. NATURAL LANGUAGE COMMANDS
+
+Support commands such as:
+
+> “Show me all suspicious activity.”
+
+> “Create a report for this video.”
+
+> “Extract all critical events.”
+
+> “Show me the busiest 10 minutes.”
+
+> “Find everyone who entered the loading area.”
+
+> “Compare activity between the morning and evening.”
+
+> “Summarize this investigation.”
+
+The AI should convert natural language into appropriate application actions where safe and unambiguous.
+
+---
+
+# 61\. API DESIGN
+
+Create clear backend endpoints or equivalent services for:
+
+```
+POST   /videos/upload
+GET    /videos
+GET    /videos/:id
+POST   /videos/:id/analyze
+GET    /videos/:id/events
+GET    /videos/:id/tracks
+GET    /videos/:id/analytics
+GET    /videos/:id/timeline
+
+POST   /search
+POST   /ask-ai
+
+GET    /alerts
+POST   /alerts/rules
+
+GET    /investigations
+POST   /investigations
+GET    /investigations/:id
+
+POST   /clips
+GET    /clips
+
+POST   /reports
+GET    /reports/:id
+
+GET    /audit-log
+```
+
+Use strong authorization checks on every endpoint.
+
+---
+
+# 62\. DATABASE MODEL
+
+Design relational entities approximately as:
+
+```
+Organization
+User
+Role
+Camera
+Video
+ProcessingJob
+Detection
+Track
+Activity
+Event
+AlertRule
+Alert
+Investigation
+EvidenceClip
+Report
+Notification
+AuditLog
+Zone
+AIQuery
+```
+
+Maintain relationships between all entities.
+
+---
+
+# 63\. REAL-TIME UPDATES
+
+Use WebSockets, Server-Sent Events, or an equivalent mechanism for:
+
+- Processing progress
+- New events
+- Alerts
+- AI responses
+- Report generation status
+
+Do not require users to manually refresh.
+
+---
+
+# 64\. FILE SECURITY
+
+Never expose permanent public URLs for CCTV files.
+
+Use:
+
+- Private object storage
+- Signed URLs
+- Expiring access tokens
+- Permission checks
+
+Every video access must be authorized.
+
+---
+
+# 65\. PRODUCTION QUALITY
+
+Do not produce:
+
+- Placeholder buttons that do nothing
+- Broken navigation
+- Fake charts without data relationships
+- Empty dashboard sections
+- Generic lorem ipsum
+- Inconsistent spacing
+- Unclear AI outputs
+- Excessive decorative graphics
+
+Every major interaction should have a logical result.
+
+---
+
+# 66\. FINAL BUILD REQUIREMENT
+
+Build the application as if it were a real SaaS product preparing for production.
+
+The final experience should feel comparable to a modern enterprise security intelligence platform.
+
+Prioritize:
+
+1. Video investigation
+2. AI-powered understanding
+3. Timestamp navigation
+4. Natural-language search
+5. Ask AI
+6. Alerts
+7. Evidence clips
+8. Analytics
+9. Automated reporting
+10. Security and privacy
+
+The interface must make a user feel that they can upload hours of CCTV footage and quickly answer:
+
+**“What happened?”**
+
+**“When did it happen?”**
+
+**“Where did it happen?”**
+
+**“Who or what was involved?”**
+
+**“How serious was it?”**
+
+**“Show me the evidence.”**
+
+**“What should I do next?”**
+
+---
+
+# 67\. FINAL UI QUALITY BAR
+
+Before considering the application complete, verify:
+
+- All navigation works.
+- Upload flow works.
+- Video analysis page is polished.
+- Timeline timestamps are interactive.
+- Events link to evidence.
+- People tracking is understandable.
+- AI search returns relevant results.
+- Ask AI provides evidence-backed answers.
+- Important clips can be extracted.
+- Alerts can be configured.
+- Investigations can be created.
+- Reports can be generated.
+- Analytics are visually meaningful.
+- Permissions are enforced.
+- Empty/loading/error states exist.
+- Responsive behavior works.
+- Dark and light themes work.
+- Accessibility basics are implemented.
+- AI uncertainty is clearly communicated.
+- Sensitive CCTV data is protected.
+
+Build the complete experience with realistic sample data and production-quality UI patterns.
+
+Do not merely describe the application. **Implement the actual application, its screens, components, interactions, data model, API structure, AI workflow, and polished UX.** :::
